@@ -1,10 +1,11 @@
 ---
-layout: about
-title: About Me
-header: About Me
-group: navigation
+layout: page
+title: About
+permalink: /about/
 ---
- * **Name:** Yitao Yao
- * **Email:** [simpleyyt@gmail.com](mailto:simpleyyt@gmail.com)
- * **WeiBo:** [摇一摇SimpleLife](http://www.weibo.com/u/1836017133)
- * **Github:** [Simpleyyt](https://github.com/Simpleyyt)
+
+This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
+
+You can find the source code for the Jekyll new theme at: [github.com/jglovier/jekyll-new](https://github.com/jglovier/jekyll-new)
+
+You can find the source code for Jekyll at [github.com/jekyll/jekyll](https://github.com/jekyll/jekyll)
