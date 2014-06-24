@@ -8,3 +8,4 @@ url: "http://wangnull.github.io/"
 # Build settings
 markdown: rdiscount
 permalink: pretty
+pygments: true
