@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "使用jekyll搭建个人blog托管到github"
+title:  "使用 Jekyll 搭建个人 Blog 托管到Github"
 categories: blog
 tags: jekyll github blog
 ---
@@ -25,21 +25,22 @@ tags: jekyll github blog
 1. 安装`Jekyll`，在本地编写符合`Jekyll`规范的网站源码
 2. 上传到github，由github生成并托管整个网站
 
-## 安装`Jekyll`，在本地编写符合`Jekyll`规范的网站源码
+## 安装 Jekyll，在本地编写符 Jekyll 规范的网站源码
 `Jekyll`是用Ruby写的，安装`Jekyll`必须先安装Ruby且版本必须高于1.9.2 。Mac 自带的Ruby是1.8.x的，所以我需要自己安装一个Ruby版本（不建议随意更改Mac自带的Ruby，我这里安装了`RVM`来管理`Ruby`）。
 
 
-#### 1. 安装`RVM`
+#### 1. 安装 RVM
 {% highlight ruby %}
 curl -L https://get.rvm.io | bash -s stable
 {% endhighlight %}
-#### 2. 确认一下`RVM`是否安装正确
+
+#### 2. 确认一下 RVM 是否安装正确
 {% highlight ruby %}
 rvm -v
-rvm 1.25.27 (stable) by Wayne E. Seguin <wayneeseguin@gmail.com>, Michal Papis <mpapis@gmail.com> [https://rvm.io/]
+rvm 1.25.27 
 {% endhighlight %}
 
-#### 3. 接下来安装`Ruby`，先查看`RVM`支持的所有`Ruby`版本
+#### 3. 接下来安装 Ruby，先查看 RVM 支持的所有 Ruby 版本
 {% highlight ruby %}
 rvm list known
 [ruby-]1.8.6[-p420]
@@ -55,7 +56,7 @@ rvm list known
 ruby-head
 {% endhighlight %}
 
-#### 4. 安装`Ruby`某版本
+#### 4. 安装 Ruby 某版本
 {% highlight ruby %}
 rvm install 2.0.0-p451
 {% endhighlight %}
@@ -82,14 +83,14 @@ gem source -l
 http://ruby.taobao.org/
 {% endhighlight %}
 
-#### 8. 安装`Jekyll`[^install-jekyll]并检查是否安装成功，终于到了这一步了ojz
+#### 8. 安装 Jekyll [^install-jekyll]并检查是否安装成功，终于到了这一步了orz
 {% highlight ruby %}
 gem install jekyll
 jekyll -version
 jekyll 2.0.3
 {% endhighlight %}
 
-#### 9. 安装`Rdiscount`
+#### 9. 安装 Rdiscount
 这个用来解析`Markdown`标记的文档。安装好后可以通过`gem list`来检查安装情况。这里不安装也是可以的，如果不安装默认使用`kramdown`解析器，且步骤11也可以忽略。也支持`Maruku`解析器。
 {% highlight ruby %}
 gem install rdiscount
@@ -134,11 +135,9 @@ jekyll build
 1. http://jekyllcn.com/docs/variables/
 2. http://jekyllcn.com/docs/templates/
 
-
 ## Markdown语法说明
 1. http://jianshu.io/p/q81RER
 2. http://wowubuntu.com/markdown/
-
 
 ## 在线Markdown编辑器
 1. https://www.zybuluo.com/mdeditor
