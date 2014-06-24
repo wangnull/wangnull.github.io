@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>使用 Jekyll 搭建个人 Blog 托管到Github</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="wang,15年会毕业于zju.接触过Android,Sencha Touch,WP开发,目前从事iOS开发工作.初期喜欢泛而广大而全的开发经验,实习面试时被虐惨,现阶段专精iOS.">
+    <link rel="canonical" href="http://wangnull.github.io/blog/2014/06/23/shi-yong-jekyll-da-jian-ge-ren-blog-tuo-guan-dao-github/">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/main.css">
+
+</head>
+
+
+    <body>
+
+    <header class="site-header">
+
+  <div class="wrap">
+
+    <a class="site-title" href="/">Anonymous Blog</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+           viewBox="0 0 18 15" enable-background="new 0 0 18 15" xml:space="preserve">
+          <path fill="#505050" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0
+            h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#505050" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484
+            h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#505050" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0
+            c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+      <div class="trigger">
+        
+          <a class="page-link" href="/archives/">Archives</a>
+        
+          <a class="page-link" href="/feed.xml"></a>
+        
+          <a class="page-link" href="/"></a>
+        
+          <a class="page-link" href="/tags/">Tags</a>
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrap">
+      <div class="post">
+
+  <header class="post-header">
+    <h1>使用 Jekyll 搭建个人 Blog 托管到Github</h1>
+    <p class="meta">Jun 23, 2014</p>
+  </header>
+
+  <article class="post-content">
+  <p>搭建blog的想法已经很久很久了，但一直闲麻烦，直至发现了<a href="https://pages.github.com">Github Page</a>服务，立即开始研究。我的安装环境:</p>
+
+<blockquote><ul>
+<li>OS X 10.9.3</li>
+<li>Ruby 1.8.x</li>
+<li>有xcode</li>
+</ul>
+</blockquote>
+
+<h2>名词解释</h2>
+
+<ul>
+<li><a href="https://pages.github.com">Github Page</a>
+提供静态页面搭建托管服务，站点可以被免费托管在 Github 上。支持自动利用<code>Jekyll</code>生成站点，也支持纯html文档.</li>
+<li><a href="http://jekyllrb.com">Jekyll</a>
+将纯文本转化为静态博客网站的站点生产机器。它通过<code>Markdown</code>或者<code>Textile</code>转化成一个完整的可发布的静态网站。文本中使用<code>Markdown</code>。</li>
+<li><a href="http://zh.wikipedia.org/wiki/Markdown">Markdown</a>
+一种易于读写的标记语言。<code>RDiscount</code>是<code>Markdown</code>的解析器，把用<code>Markdown</code>语法编写的内容转换成有效的、结构良好的html内容。</li>
+</ul>
+
+
+<h2>搭建步骤</h2>
+
+<ol>
+<li>安装<code>Jekyll</code>，在本地编写符合<code>Jekyll</code>规范的网站源码</li>
+<li>上传到github，由github生成并托管整个网站</li>
+</ol>
+
+
+<h2>安装 Jekyll，在本地编写符 Jekyll 规范的网站源码</h2>
+
+<p><code>Jekyll</code>是用Ruby写的，安装<code>Jekyll</code>必须先安装Ruby且版本必须高于1.9.2 。Mac 自带的Ruby是1.8.x的，所以我需要自己安装一个Ruby版本（不建议随意更改Mac自带的Ruby，我这里安装了<code>RVM</code>来管理<code>Ruby</code>）。</p>
+
+<h4>1. 安装 RVM</h4>
+
+<div class="highlight"><pre><code class="ruby">curl -L https://get.rvm.io | bash -s stable</code></pre></div>
+
+
+<h4>2. 确认一下 RVM 是否安装正确</h4>
+
+<div class="highlight"><pre><code class="ruby">rvm -v
+rvm 1.25.27</code></pre></div>
+
+
+<h4>3. 接下来安装 Ruby，先查看 RVM 支持的所有 Ruby 版本</h4>
+
+<div class="highlight"><pre><code class="ruby">rvm list known
+[ruby-]1.8.6[-p420]
+[ruby-]1.8.7[-head] # security released on head
+[ruby-]1.9.1[-p431]
+[ruby-]1.9.2[-head] # security released on head
+[ruby-]1.9.3[-p547]
+[ruby-]2.0.0-p451
+[ruby-]2.0.0[-p481]
+[ruby-]2.1.1
+[ruby-]2.1[.2]
+[ruby-]2.1-head
+ruby-head</code></pre></div>
+
+
+<h4>4. 安装 Ruby 某版本</h4>
+
+<div class="highlight"><pre><code class="ruby">rvm install 2.0.0-p451</code></pre></div>
+
+
+<p><strong>注意:</strong> 我安装2.0.0和2.1-head的时候有warnning或error，而2.0.0-p451是没有任何warnning和error的一个版本，所以以防万一环境出问题我装了这个。</p>
+
+<h4>5. 检查下装成功了没</h4>
+
+<div class="highlight"><pre><code class="ruby">ruby -v
+ruby 2.0.0p451 (2014-02-24 revision 45167) [x86_64-darwin12.5.0]
+gem -v
+2.2.2</code></pre></div>
+
+
+<h4>6. 更换源</h4>
+
+<p>rubygems.org存放在Amazon云上面，由于（大家懂的）的原因，会与遇到 <code>gem install</code>的时候半天没有响应，所以这里换成淘宝的源。</p>
+
+<div class="highlight"><pre><code class="ruby">gem source -r https://rubygems.org/
+gem source -a https://ruby.taobao.org</code></pre></div>
+
+
+<h4>7. 检查下源是否更换情况：</h4>
+
+<div class="highlight"><pre><code class="ruby">gem source -l
+http://ruby.taobao.org/</code></pre></div>
+
+
+<h4>8. 安装 Jekyll <a href="http://jekyllcn.com/docs/installation/">^install-jekyll</a>并检查是否安装成功，终于到了这一步了orz</h4>
+
+<div class="highlight"><pre><code class="ruby">gem install jekyll
+jekyll -version
+jekyll 2.0.3</code></pre></div>
+
+
+<h4>9. 安装 Rdiscount</h4>
+
+<p>这个用来解析<code>Markdown</code>标记的文档。安装好后可以通过<code>gem list</code>来检查安装情况。这里不安装也是可以的，如果不安装默认使用<code>kramdown</code>解析器，且步骤11也可以忽略。也支持<code>Maruku</code>解析器。</p>
+
+<div class="highlight"><pre><code class="ruby">gem install rdiscount</code></pre></div>
+
+
+<h4>10. 生成默认网站</h4>
+
+<p>移动到网站存放目录，然后new一个site(本地的网站存放目录)。</p>
+
+<div class="highlight"><pre><code class="ruby">jekyll new site
+New jekyll site installed in /Users/username/Desktop/jekyll/site.</code></pre></div>
+
+
+<p><em>Note:</em> 我这里网站放在桌面－jekyll文件夹－site文件夹 下。</p>
+
+<h4>11. 修改网站配置文件</h4>
+
+<p>修改site文件夹下的<code>_config.yml</code>文件里的<code>markdown: kramdown</code>为<code>markdown: rdiscount</code>。更多的配置信息可参考<a href="http://jekyllcn.com/docs/configuration/">Jekyll配置文件</a>。</p>
+
+<h4>12. 查看本地网站</h4>
+
+<p><code>Jekyll</code>集成了一个开发用的服务器，可以让你使用浏览器在本地进行预览。移动到site目录下，然后启动该服务器：</p>
+
+<div class="highlight"><pre><code class="ruby">cd site
+jekyll server</code></pre></div>
+
+
+<p><em>Note:</em> 一个开发服务器将会运行在 http://localhost:4000/。到此为止，已成功编写符合<code>Jekyll</code>规范的网站源码。快速入门<a href="http://jekyllcn.com">Jekyll</a>。</p>
+
+<h4>13. 需要托管的内容</h4>
+
+<p>查看刚刚生成的site的目录结构<a href="http://jekyllcn.com/docs/structure/">^jekyll-structure</a>的话，可以发现一个<code>./site</code> 文件夹，一旦<code>Jekyll</code>的内容完成转换，就会将生成的页面放在这里（默认），到时候只要将这个目录托管到github上即可。当然，如果你把源代码直接托管上去，也是可以的。</p>
+
+<div class="highlight"><pre><code class="ruby">jekyll build</code></pre></div>
+
+
+<p><em>Note:</em> 当前文件夹中的内容将会生成到 ./site 文件夹中。</p>
+
+<h2>上传到github，由github生成并托管整个网站</h2>
+
+<ol>
+<li>新建Repository</li>
+<li>进入Repository，settings栏目，automatic page generator,continue to layouts,publish,</li>
+<li>clone</li>
+</ol>
+
+
+<h2>寻找合适的Jekyll主题</h2>
+
+<ol>
+<li><a href="http://jekyllthemes.org">http://jekyllthemes.org</a></li>
+<li><a href="https://github.com/jekyll/jekyll/wiki/Site">https://github.com/jekyll/jekyll/wiki/Sites</a></li>
+</ol>
+
+
+<h2>Jekyll入门</h2>
+
+<ol>
+<li><a href="http://jekyllcn.com/docs/variables/">http://jekyllcn.com/docs/variables/</a></li>
+<li><a href="http://jekyllcn.com/docs/templates/">http://jekyllcn.com/docs/templates/</a></li>
+</ol>
+
+
+<h2>Markdown语法说明</h2>
+
+<ol>
+<li><a href="http://jianshu.io/p/q81RER">http://jianshu.io/p/q81RER</a></li>
+<li><a href="http://wowubuntu.com/markdown/">http://wowubuntu.com/markdown/</a></li>
+</ol>
+
+
+<h2>在线Markdown编辑器</h2>
+
+<ol>
+<li><a href="https://www.zybuluo.com/mdeditor">https://www.zybuluo.com/mdeditor</a></li>
+<li><a href="https://stackedit.io">https://stackedit.io</a></li>
+</ol>
+
+
+  </article>
+
+</div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrap">
+
+    <h2 class="footer-heading">Anonymous Blog</h2>
+
+    <div class="footer-col-1 column">
+      <ul>
+        <li>联系方式：</li>
+        <li><a href="mailto:dalmavong@gmail.com">dalmavong@gmail.com</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col-2 column">
+    
+    </div>
+
+    <div class="footer-col-3 column">
+      <p class="text">wang,15年会毕业于zju.接触过Android,Sencha Touch,WP开发,目前从事iOS开发工作.初期喜欢泛而广大而全的开发经验,实习面试时被虐惨,现阶段专精iOS.</p>
+    </div>
+
+  </div>
+
+</footer>
+
+
+    </body>
+</html>

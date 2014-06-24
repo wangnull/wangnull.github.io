@@ -1,21 +1,215 @@
----
-layout: none
----
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>{{ site.title | xml_escape }}</title>
-    <description>{{ site.description | xml_escape }}</description>
-    <link>{{ site.url }}{{ site.baseurl }}/</link>
-    <atom:link href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" rel="self" type="application/rss+xml" />
-    {% for post in site.posts limit:10 %}
+    <title>Anonymous Blog</title>
+    <description>wang,15年会毕业于zju.接触过Android,Sencha Touch,WP开发,目前从事iOS开发工作.初期喜欢泛而广大而全的开发经验,实习面试时被虐惨,现阶段专精iOS.</description>
+    <link>http://wangnull.github.io/</link>
+    <atom:link href="http://wangnull.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    
       <item>
-        <title>{{ post.title | xml_escape }}</title>
-        <description>{{ post.content | xml_escape }}</description>
-        <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
-        <link>{{ post.url | prepend: site.baseurl | prepend: site.url }}</link>
-        <guid isPermaLink="true">{{ post.url | prepend: site.baseurl | prepend: site.url }}</guid>
+        <title>Welcome to Jekyll!</title>
+        <description>&lt;p&gt;You&#39;ll find this post in your &lt;code&gt;_posts&lt;/code&gt; directory - edit this post and re-build (or run with the &lt;code&gt;-w&lt;/code&gt; switch) to see your changes!
+To add new posts, simply add a file in the &lt;code&gt;_posts&lt;/code&gt; directory that follows the convention: YYYY-MM-DD-name-of-post.ext.&lt;/p&gt;
+
+&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;def print_hi(name)
+  puts &amp;quot;Hi, #{name}&amp;quot;
+end
+print_hi(&amp;#39;Tom&amp;#39;)
+#=&amp;gt; prints &amp;#39;Hi, Tom&amp;#39; to STDOUT.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll&#39;s GitHub repo&lt;/a&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 23 Jun 2014 06:41:28 +0800</pubDate>
+        <link>http://wangnull.github.io/jekyll/update/2014/06/23/welcome-to-jekyll/</link>
+        <guid isPermaLink="true">http://wangnull.github.io/jekyll/update/2014/06/23/welcome-to-jekyll/</guid>
       </item>
-    {% endfor %}
+    
+      <item>
+        <title>使用 Jekyll 搭建个人 Blog 托管到Github</title>
+        <description>&lt;p&gt;搭建blog的想法已经很久很久了，但一直闲麻烦，直至发现了&lt;a href=&quot;https://pages.github.com&quot;&gt;Github Page&lt;/a&gt;服务，立即开始研究。我的安装环境:&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;ul&gt;
+&lt;li&gt;OS X 10.9.3&lt;/li&gt;
+&lt;li&gt;Ruby 1.8.x&lt;/li&gt;
+&lt;li&gt;有xcode&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h2&gt;名词解释&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://pages.github.com&quot;&gt;Github Page&lt;/a&gt;
+提供静态页面搭建托管服务，站点可以被免费托管在 Github 上。支持自动利用&lt;code&gt;Jekyll&lt;/code&gt;生成站点，也支持纯html文档.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt;
+将纯文本转化为静态博客网站的站点生产机器。它通过&lt;code&gt;Markdown&lt;/code&gt;或者&lt;code&gt;Textile&lt;/code&gt;转化成一个完整的可发布的静态网站。文本中使用&lt;code&gt;Markdown&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://zh.wikipedia.org/wiki/Markdown&quot;&gt;Markdown&lt;/a&gt;
+一种易于读写的标记语言。&lt;code&gt;RDiscount&lt;/code&gt;是&lt;code&gt;Markdown&lt;/code&gt;的解析器，把用&lt;code&gt;Markdown&lt;/code&gt;语法编写的内容转换成有效的、结构良好的html内容。&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2&gt;搭建步骤&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;安装&lt;code&gt;Jekyll&lt;/code&gt;，在本地编写符合&lt;code&gt;Jekyll&lt;/code&gt;规范的网站源码&lt;/li&gt;
+&lt;li&gt;上传到github，由github生成并托管整个网站&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h2&gt;安装 Jekyll，在本地编写符 Jekyll 规范的网站源码&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;Jekyll&lt;/code&gt;是用Ruby写的，安装&lt;code&gt;Jekyll&lt;/code&gt;必须先安装Ruby且版本必须高于1.9.2 。Mac 自带的Ruby是1.8.x的，所以我需要自己安装一个Ruby版本（不建议随意更改Mac自带的Ruby，我这里安装了&lt;code&gt;RVM&lt;/code&gt;来管理&lt;code&gt;Ruby&lt;/code&gt;）。&lt;/p&gt;
+
+&lt;h4&gt;1. 安装 RVM&lt;/h4&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;curl -L https://get.rvm.io | bash -s stable&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;2. 确认一下 RVM 是否安装正确&lt;/h4&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;rvm -v
+rvm 1.25.27&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;3. 接下来安装 Ruby，先查看 RVM 支持的所有 Ruby 版本&lt;/h4&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;rvm list known
+[ruby-]1.8.6[-p420]
+[ruby-]1.8.7[-head] # security released on head
+[ruby-]1.9.1[-p431]
+[ruby-]1.9.2[-head] # security released on head
+[ruby-]1.9.3[-p547]
+[ruby-]2.0.0-p451
+[ruby-]2.0.0[-p481]
+[ruby-]2.1.1
+[ruby-]2.1[.2]
+[ruby-]2.1-head
+ruby-head&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;4. 安装 Ruby 某版本&lt;/h4&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;rvm install 2.0.0-p451&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;注意:&lt;/strong&gt; 我安装2.0.0和2.1-head的时候有warnning或error，而2.0.0-p451是没有任何warnning和error的一个版本，所以以防万一环境出问题我装了这个。&lt;/p&gt;
+
+&lt;h4&gt;5. 检查下装成功了没&lt;/h4&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;ruby -v
+ruby 2.0.0p451 (2014-02-24 revision 45167) [x86_64-darwin12.5.0]
+gem -v
+2.2.2&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;6. 更换源&lt;/h4&gt;
+
+&lt;p&gt;rubygems.org存放在Amazon云上面，由于（大家懂的）的原因，会与遇到 &lt;code&gt;gem install&lt;/code&gt;的时候半天没有响应，所以这里换成淘宝的源。&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;gem source -r https://rubygems.org/
+gem source -a https://ruby.taobao.org&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;7. 检查下源是否更换情况：&lt;/h4&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;gem source -l
+http://ruby.taobao.org/&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;8. 安装 Jekyll &lt;a href=&quot;http://jekyllcn.com/docs/installation/&quot;&gt;^install-jekyll&lt;/a&gt;并检查是否安装成功，终于到了这一步了orz&lt;/h4&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;gem install jekyll
+jekyll -version
+jekyll 2.0.3&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;9. 安装 Rdiscount&lt;/h4&gt;
+
+&lt;p&gt;这个用来解析&lt;code&gt;Markdown&lt;/code&gt;标记的文档。安装好后可以通过&lt;code&gt;gem list&lt;/code&gt;来检查安装情况。这里不安装也是可以的，如果不安装默认使用&lt;code&gt;kramdown&lt;/code&gt;解析器，且步骤11也可以忽略。也支持&lt;code&gt;Maruku&lt;/code&gt;解析器。&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;gem install rdiscount&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;10. 生成默认网站&lt;/h4&gt;
+
+&lt;p&gt;移动到网站存放目录，然后new一个site(本地的网站存放目录)。&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;jekyll new site
+New jekyll site installed in /Users/username/Desktop/jekyll/site.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;em&gt;Note:&lt;/em&gt; 我这里网站放在桌面－jekyll文件夹－site文件夹 下。&lt;/p&gt;
+
+&lt;h4&gt;11. 修改网站配置文件&lt;/h4&gt;
+
+&lt;p&gt;修改site文件夹下的&lt;code&gt;_config.yml&lt;/code&gt;文件里的&lt;code&gt;markdown: kramdown&lt;/code&gt;为&lt;code&gt;markdown: rdiscount&lt;/code&gt;。更多的配置信息可参考&lt;a href=&quot;http://jekyllcn.com/docs/configuration/&quot;&gt;Jekyll配置文件&lt;/a&gt;。&lt;/p&gt;
+
+&lt;h4&gt;12. 查看本地网站&lt;/h4&gt;
+
+&lt;p&gt;&lt;code&gt;Jekyll&lt;/code&gt;集成了一个开发用的服务器，可以让你使用浏览器在本地进行预览。移动到site目录下，然后启动该服务器：&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;cd site
+jekyll server&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;em&gt;Note:&lt;/em&gt; 一个开发服务器将会运行在 http://localhost:4000/。到此为止，已成功编写符合&lt;code&gt;Jekyll&lt;/code&gt;规范的网站源码。快速入门&lt;a href=&quot;http://jekyllcn.com&quot;&gt;Jekyll&lt;/a&gt;。&lt;/p&gt;
+
+&lt;h4&gt;13. 需要托管的内容&lt;/h4&gt;
+
+&lt;p&gt;查看刚刚生成的site的目录结构&lt;a href=&quot;http://jekyllcn.com/docs/structure/&quot;&gt;^jekyll-structure&lt;/a&gt;的话，可以发现一个&lt;code&gt;./site&lt;/code&gt; 文件夹，一旦&lt;code&gt;Jekyll&lt;/code&gt;的内容完成转换，就会将生成的页面放在这里（默认），到时候只要将这个目录托管到github上即可。当然，如果你把源代码直接托管上去，也是可以的。&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;jekyll build&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;em&gt;Note:&lt;/em&gt; 当前文件夹中的内容将会生成到 ./site 文件夹中。&lt;/p&gt;
+
+&lt;h2&gt;上传到github，由github生成并托管整个网站&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;新建Repository&lt;/li&gt;
+&lt;li&gt;进入Repository，settings栏目，automatic page generator,continue to layouts,publish,&lt;/li&gt;
+&lt;li&gt;clone&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h2&gt;寻找合适的Jekyll主题&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;http://jekyllthemes.org&quot;&gt;http://jekyllthemes.org&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/jekyll/jekyll/wiki/Site&quot;&gt;https://github.com/jekyll/jekyll/wiki/Sites&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h2&gt;Jekyll入门&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;http://jekyllcn.com/docs/variables/&quot;&gt;http://jekyllcn.com/docs/variables/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://jekyllcn.com/docs/templates/&quot;&gt;http://jekyllcn.com/docs/templates/&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h2&gt;Markdown语法说明&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;http://jianshu.io/p/q81RER&quot;&gt;http://jianshu.io/p/q81RER&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://wowubuntu.com/markdown/&quot;&gt;http://wowubuntu.com/markdown/&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h2&gt;在线Markdown编辑器&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.zybuluo.com/mdeditor&quot;&gt;https://www.zybuluo.com/mdeditor&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://stackedit.io&quot;&gt;https://stackedit.io&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+</description>
+        <pubDate>Mon, 23 Jun 2014 00:00:00 +0800</pubDate>
+        <link>http://wangnull.github.io/blog/2014/06/23/shi-yong-jekyll-da-jian-ge-ren-blog-tuo-guan-dao-github/</link>
+        <guid isPermaLink="true">http://wangnull.github.io/blog/2014/06/23/shi-yong-jekyll-da-jian-ge-ren-blog-tuo-guan-dao-github/</guid>
+      </item>
+    
   </channel>
 </rss>
