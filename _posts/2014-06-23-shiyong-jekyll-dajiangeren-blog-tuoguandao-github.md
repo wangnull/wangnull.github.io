@@ -42,17 +42,38 @@ rvm -v
 rvm 1.25.27 (stable) by Wayne E. Seguin <wayneeseguin@gmail.com>, Michal Papis <mpapis@gmail.com> [https://rvm.io/]
 ```
 
-  rvm -v
-  rvm 1.25.27 (stable) by Wayne E. Seguin <wayneeseguin@gmail.com>, Michal Papis <mpapis@gmail.com> [https://rvm.io/]
-
-`rvm -v
-rvm 1.25.27 (stable) by Wayne E. Seguin <wayneeseguin@gmail.com>, Michal Papis <mpapis@gmail.com> [https://rvm.io/]`
-
-
 
 {% highlight ruby %}
 rvm -v
 rvm 1.25.27 (stable) by Wayne E. Seguin <wayneeseguin@gmail.com>, Michal Papis <mpapis@gmail.com> [https://rvm.io/]
+{% endhighlight %}
+
+
+> -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+> {
+>     [self dismiss];
+>     [self endHeaderAndFooterRefresh];
+>     [self.view makeToast:@"网络请求失败"];
+>     
+> }
+
+```
+-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    [self dismiss];
+    [self endHeaderAndFooterRefresh];
+    [self.view makeToast:@"网络请求失败"];
+    
+}
+```
+{% highlight ruby %}
+-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    [self dismiss];
+    [self endHeaderAndFooterRefresh];
+    [self.view makeToast:@"网络请求失败"];
+    
+}
 {% endhighlight %}
 
 3. 接下来安装`Ruby`，先查看`RVM`支持的所有`Ruby`版本
