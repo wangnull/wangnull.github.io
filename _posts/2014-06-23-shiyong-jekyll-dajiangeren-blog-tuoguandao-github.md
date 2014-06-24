@@ -28,7 +28,13 @@ tags: jekyll github blog
 ## 安装`Jekyll`，在本地编写符合`Jekyll`规范的网站源码
 `Jekyll`是用Ruby写的，安装`Jekyll`必须先安装Ruby且版本必须高于1.9.2 。Mac 自带的Ruby是1.8.x的，所以我需要自己安装一个Ruby版本（不建议随意更改Mac自带的Ruby，我这里安装了`RVM`来管理`Ruby`）。
 
+- 安装`RVM`
 1. 安装`RVM`
+### 安装`RVM`
+#### 安装`RVM`
+##### 安装`RVM`
+###### 安装`RVM`
+- 安装`RVM`
 {% highlight ruby %}
 curl -L https://get.rvm.io | bash -s stable
 {% endhighlight %}
