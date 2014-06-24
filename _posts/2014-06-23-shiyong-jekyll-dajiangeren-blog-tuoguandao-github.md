@@ -33,8 +33,8 @@ tags: jekyll github blog
 curl -L https://get.rvm.io | bash -s stable
 {% endhighlight %}
 2. 确认一下`RVM`是否安装正确
-  rvm -v
-  rvm 1.25.27 (stable) by Wayne E. Seguin <wayneeseguin@gmail.com>, Michal Papis <mpapis@gmail.com> [https://rvm.io/]
+    rvm -v
+    rvm 1.25.27 (stable) by Wayne E. Seguin <wayneeseguin@gmail.com>, Michal Papis <mpapis@gmail.com> [https://rvm.io/]
 
 
 3. 接下来安装`Ruby`，先查看`RVM`支持的所有`Ruby`版本
