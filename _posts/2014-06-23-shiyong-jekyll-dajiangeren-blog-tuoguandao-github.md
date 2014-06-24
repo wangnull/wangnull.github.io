@@ -38,6 +38,12 @@ rvm -v
 rvm 1.25.27 (stable) by Wayne E. Seguin <wayneeseguin@gmail.com>, Michal Papis <mpapis@gmail.com> [https://rvm.io/]
 {% endhighlight %}
 
+{% highlight ruby %}
+var arr = [0,0,0]  
+var partOfArr: Array = arr[0...1]  
+//Could not find an overload for 'subscript' that accepts the supplied arguments
+{% endhighlight %}
+
 3. 接下来安装`Ruby`，先查看`RVM`支持的所有`Ruby`版本
 {% highlight ruby %}
 rvm list known
