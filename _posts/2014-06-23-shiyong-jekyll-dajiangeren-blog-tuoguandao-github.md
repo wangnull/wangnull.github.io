@@ -5,9 +5,6 @@ categories: blog
 tags: jekyll github blog
 ---
 
-# 使用jekyll搭建个人blog托管到github
-
-
 搭建blog的想法已经很久很久了，但一直闲麻烦，直至发现了[Github Page][1]服务，立即开始研究。我的安装环境:
 > - OS X 10.9.3
 > - Ruby 1.8.x
@@ -128,20 +125,20 @@ jekyll build
 3. clone
 
 ## 寻找合适的Jekyll主题
-1. http://jekyllthemes.org
-2. https://github.com/jekyll/jekyll/wiki/Sites
+1. [http://jekyllthemes.org](http://jekyllthemes.org)
+2. [https://github.com/jekyll/jekyll/wiki/Sites][https://github.com/jekyll/jekyll/wiki/Site]
 
 ## Jekyll入门
-1. http://jekyllcn.com/docs/variables/
-2. http://jekyllcn.com/docs/templates/
+1. [http://jekyllcn.com/docs/variables/][http://jekyllcn.com/docs/variables/]
+2. [http://jekyllcn.com/docs/templates/][http://jekyllcn.com/docs/templates/]
 
 ## Markdown语法说明
-1. http://jianshu.io/p/q81RER
-2. http://wowubuntu.com/markdown/
+1. [http://jianshu.io/p/q81RER][]
+2. [http://wowubuntu.com/markdown/][]
 
 ## 在线Markdown编辑器
-1. https://www.zybuluo.com/mdeditor
-2. https://stackedit.io
+1. [https://www.zybuluo.com/mdeditor][]
+2. [https://stackedit.io][]
 
 [^install-jekyll]:http://jekyllcn.com/docs/installation/
 
