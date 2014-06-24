@@ -42,6 +42,14 @@ rvm -v
 rvm 1.25.27 (stable) by Wayne E. Seguin <wayneeseguin@gmail.com>, Michal Papis <mpapis@gmail.com> [https://rvm.io/]
 ```
 
+  rvm -v
+  rvm 1.25.27 (stable) by Wayne E. Seguin <wayneeseguin@gmail.com>, Michal Papis <mpapis@gmail.com> [https://rvm.io/]
+
+`rvm -v
+rvm 1.25.27 (stable) by Wayne E. Seguin <wayneeseguin@gmail.com>, Michal Papis <mpapis@gmail.com> [https://rvm.io/]`
+
+
+
 {% highlight ruby %}
 rvm -v
 rvm 1.25.27 (stable) by Wayne E. Seguin <wayneeseguin@gmail.com>, Michal Papis <mpapis@gmail.com> [https://rvm.io/]
