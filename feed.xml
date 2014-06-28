@@ -245,7 +245,7 @@ gem source -a https://ruby.taobao.org&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 http://ruby.taobao.org/&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h4&gt;8. 安装 Jekyll &lt;a href=&quot;http://jekyllcn.com/docs/installation/&quot;&gt;^install-jekyll&lt;/a&gt;并检查是否安装成功，终于到了这一步了orz&lt;/h4&gt;
+&lt;h4&gt;8. 安装 &lt;a href=&quot;http://jekyllcn.com/docs/installation/&quot;&gt;Jekyll&lt;/a&gt;并检查是否安装成功，终于到了这一步了orz&lt;/h4&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;gem install jekyll
 jekyll -version
@@ -285,7 +285,7 @@ jekyll server&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h4&gt;13. 需要托管的内容&lt;/h4&gt;
 
-&lt;p&gt;查看刚刚生成的site的目录结构&lt;a href=&quot;http://jekyllcn.com/docs/structure/&quot;&gt;^jekyll-structure&lt;/a&gt;的话，可以发现一个&lt;code&gt;./site&lt;/code&gt; 文件夹，一旦&lt;code&gt;Jekyll&lt;/code&gt;的内容完成转换，就会将生成的页面放在这里（默认），到时候只要将这个目录托管到github上即可。当然，如果你把源代码直接托管上去，也是可以的。&lt;/p&gt;
+&lt;p&gt;查看刚刚生成的site的&lt;a href=&quot;http://jekyllcn.com/docs/structure/&quot;&gt;目录结构&lt;/a&gt;的话，可以发现一个&lt;code&gt;./site&lt;/code&gt; 文件夹，一旦&lt;code&gt;Jekyll&lt;/code&gt;的内容完成转换，就会将生成的页面放在这里（默认），到时候只要将这个目录托管到github上即可。当然，如果你把源代码直接托管上去，也是可以的。&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;jekyll build&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
