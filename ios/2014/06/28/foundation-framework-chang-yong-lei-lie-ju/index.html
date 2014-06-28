@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Foundation Framework常用类列举</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="wang,15年会毕业于zju.接触过Android,Sencha Touch,WP开发,目前从事iOS开发工作.初期喜欢泛而广大而全的开发经验,实习面试时被虐惨,现阶段专精iOS.">
+    <link rel="canonical" href="http://wangnull.github.io/ios/2014/06/28/foundation-framework-chang-yong-lei-lie-ju/">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/main.css">
+
+</head>
+
+
+    <body>
+
+    <header class="site-header">
+
+  <div class="wrap">
+
+    <a class="site-title" href="/">Anonymous Blog</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+           viewBox="0 0 18 15" enable-background="new 0 0 18 15" xml:space="preserve">
+          <path fill="#505050" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0
+            h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#505050" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484
+            h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#505050" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0
+            c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+      <div class="trigger">
+        
+          <a class="page-link" href="/archives/">Archives</a>
+        
+          <a class="page-link" href="/feed.xml"></a>
+        
+          <a class="page-link" href="/"></a>
+        
+          <a class="page-link" href="/tags/">Tags</a>
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrap">
+      <div class="post">
+
+  <header class="post-header">
+    <h1>Foundation Framework常用类列举</h1>
+    <p class="meta">Jun 28, 2014</p>
+  </header>
+
+  <article class="post-content">
+  <h2>Foundation Framework常用类</h2>
+
+<ol>
+<li><p>NSObject</p>
+
+<blockquote><p>所有类的根类</p></blockquote></li>
+<li><p>NSString</p></li>
+<li><p>NSMutableString</p>
+
+<blockquote><p>问：为什么少用NSMutableString？</p>
+
+<p>答：</p>
+
+<p><em>1.</em> append和mutablestring 2种方法新建字符串一样。</p>
+
+<p><em>2.</em> NSString优化到了极致。</p></blockquote></li>
+<li><p>NSNumber</p>
+
+<blockquote><p>原始数据</p></blockquote></li>
+<li><p>NSValue</p>
+
+<blockquote><p>为结构体之类的数据提供包装，比如CGPoint</p></blockquote></li>
+<li><p>NSData</p>
+
+<blockquote><p>装无结构数据，二进制码之类的，依赖传递的API，可能字符串可能图片</p></blockquote></li>
+<li><p>NSDate</p>
+
+<blockquote><p>日期时间，过去未来现在</p></blockquote></li>
+<li><p>NSArray</p>
+
+<blockquote><p>有序的对象集合，根据你增加删除会变大变小</p>
+
+<p>不可变－>创建的时候根据内容可以调整，之后不再变化</p>
+
+<p>常用方法：</p>
+
+<p>1 count</p>
+
+<p>2 objectAtIndex</p>
+
+<p>3 lastObject</p>
+
+<p>不能放nil,可以放NSNull(空白占位符)</p></blockquote></li>
+<li><p>NSMutableArray</p>
+
+<blockquote><p>arrayWithCapacity 新建空的数组，传入数组大小</p>
+
+<p>常用方法：</p>
+
+<p>1 addObject</p>
+
+<p>2 insertObject AtIndex</p>
+
+<p>3 removeObject AtIndex</p>
+
+<p>4 removeLastObject</p>
+
+<p>5 copy //返回不可变数据，不可变数组copy返回可变数组（虽然效率不高，但也极致优化）</p></blockquote></li>
+<li><p>NSDictionary</p>
+
+<blockquote><p>字典，哈希表，key发给哈希表用isequal配对</p>
+
+<p>常用方法:</p>
+
+<p>1 count</p>
+
+<p>2 objectForKey</p></blockquote></li>
+<li><p>NSMutableDictionary</p>
+
+<blockquote><p>常用方法:</p>
+
+<p>1 setObject ForKey</p>
+
+<p>2 removeObject ForKey</p></blockquote></li>
+<li><p>NSSet</p></li>
+<li><p>NSMutableSet</p>
+
+<blockquote><p>无序的唯一的对象集合，因为无序不能添加在指定位置</p>
+
+<p>常用方法：</p>
+
+<p>1 count</p>
+
+<p>2 containsObject</p></blockquote></li>
+<li><p>NSOrderSet</p></li>
+<li><p>NSMutableOrderSet</p>
+
+<blockquote><p>NSArray和NSSet的混合，能在指定位置插入对象，但仍然不能重复放入对象，成员检查比另两个效率</p></blockquote></li>
+<li><p>NSUserDefault</p>
+
+<blockquote><p>轻量级的属性列表数据库，只要用了就必须调用synchronize和磁盘同步（安全起见）</p></blockquote></li>
+</ol>
+
+
+<h2>其他</h2>
+
+<ol>
+<li>栈堆</li>
+<li>nonatomic 非线程安全//默认线程安全</li>
+<li>property //设置getter和setter</li>
+<li>synthesize //自动实现property，你不实现才会自动实现，</li>
+<li>copy: strong的可变的副本</li>
+<li>如果是指针对象，必须有strong或者weak，因为需要内存管理。
+
+<blockquote><p>strong:保存指针对象的内存直到使用结束(nil).
+weak:没人用了就自动设为nil.</p></blockquote></li>
+<li>nil是空指针。if(obj){//非nil会直行} int i = [obj method],如果ojb是nil,i＝0。如果返回的是结构体,是undefined.</li>
+<li>bool,YES非0,NO=0</li>
+<li>类方法，用来创建对象或者工具方法。</li>
+<li>[实例 class] return a Calss</li>
+<li>数组中的元素都是strong指针</li>
+<li>alloc是NSObject的类方法，为对象在堆上分配一个足够大的空间。init是初始化。</li>
+<li>iskinkofclass 是否属于该类或者其子类</li>
+<li>ismemberofclass 是否属于该类（不包括继承类）</li>
+<li>respondsToSelector 对象能否回应某个方法，不管什么类</li>
+<li>SEL 保留selector的返回值</li>
+<li>for - in 不要在枚举里修改可变数据，NSArray枚举和字典枚举</li>
+</ol>
+
+
+  </article>
+
+</div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrap">
+
+    <h2 class="footer-heading">Anonymous Blog</h2>
+
+    <div class="footer-col-1 column">
+      <ul>
+        <li>联系方式：</li>
+        <li><a href="mailto:dalmavong@gmail.com">dalmavong@gmail.com</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col-2 column">
+    
+    </div>
+
+    <div class="footer-col-3 column">
+      <p class="text">wang,15年会毕业于zju.接触过Android,Sencha Touch,WP开发,目前从事iOS开发工作.初期喜欢泛而广大而全的开发经验,实习面试时被虐惨,现阶段专精iOS.</p>
+    </div>
+
+  </div>
+
+</footer>
+
+
+    </body>
+</html>

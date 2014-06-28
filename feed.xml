@@ -7,6 +7,133 @@
     <atom:link href="http://wangnull.github.io/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Foundation Framework常用类列举</title>
+        <description>&lt;h2&gt;Foundation Framework常用类&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;NSObject&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;所有类的根类&lt;/p&gt;&lt;/blockquote&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;NSString&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;NSMutableString&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;问：为什么少用NSMutableString？&lt;/p&gt;
+
+&lt;p&gt;答：&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;1.&lt;/em&gt; append和mutablestring 2种方法新建字符串一样。&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;2.&lt;/em&gt; NSString优化到了极致。&lt;/p&gt;&lt;/blockquote&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;NSNumber&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;原始数据&lt;/p&gt;&lt;/blockquote&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;NSValue&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;为结构体之类的数据提供包装，比如CGPoint&lt;/p&gt;&lt;/blockquote&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;NSData&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;装无结构数据，二进制码之类的，依赖传递的API，可能字符串可能图片&lt;/p&gt;&lt;/blockquote&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;NSDate&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;日期时间，过去未来现在&lt;/p&gt;&lt;/blockquote&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;NSArray&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;有序的对象集合，根据你增加删除会变大变小&lt;/p&gt;
+
+&lt;p&gt;不可变－&gt;创建的时候根据内容可以调整，之后不再变化&lt;/p&gt;
+
+&lt;p&gt;常用方法：&lt;/p&gt;
+
+&lt;p&gt;1 count&lt;/p&gt;
+
+&lt;p&gt;2 objectAtIndex&lt;/p&gt;
+
+&lt;p&gt;3 lastObject&lt;/p&gt;
+
+&lt;p&gt;不能放nil,可以放NSNull(空白占位符)&lt;/p&gt;&lt;/blockquote&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;NSMutableArray&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;arrayWithCapacity 新建空的数组，传入数组大小&lt;/p&gt;
+
+&lt;p&gt;常用方法：&lt;/p&gt;
+
+&lt;p&gt;1 addObject&lt;/p&gt;
+
+&lt;p&gt;2 insertObject AtIndex&lt;/p&gt;
+
+&lt;p&gt;3 removeObject AtIndex&lt;/p&gt;
+
+&lt;p&gt;4 removeLastObject&lt;/p&gt;
+
+&lt;p&gt;5 copy //返回不可变数据，不可变数组copy返回可变数组（虽然效率不高，但也极致优化）&lt;/p&gt;&lt;/blockquote&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;NSDictionary&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;字典，哈希表，key发给哈希表用isequal配对&lt;/p&gt;
+
+&lt;p&gt;常用方法:&lt;/p&gt;
+
+&lt;p&gt;1 count&lt;/p&gt;
+
+&lt;p&gt;2 objectForKey&lt;/p&gt;&lt;/blockquote&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;NSMutableDictionary&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;常用方法:&lt;/p&gt;
+
+&lt;p&gt;1 setObject ForKey&lt;/p&gt;
+
+&lt;p&gt;2 removeObject ForKey&lt;/p&gt;&lt;/blockquote&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;NSSet&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;NSMutableSet&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;无序的唯一的对象集合，因为无序不能添加在指定位置&lt;/p&gt;
+
+&lt;p&gt;常用方法：&lt;/p&gt;
+
+&lt;p&gt;1 count&lt;/p&gt;
+
+&lt;p&gt;2 containsObject&lt;/p&gt;&lt;/blockquote&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;NSOrderSet&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;NSMutableOrderSet&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;NSArray和NSSet的混合，能在指定位置插入对象，但仍然不能重复放入对象，成员检查比另两个效率&lt;/p&gt;&lt;/blockquote&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;NSUserDefault&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;轻量级的属性列表数据库，只要用了就必须调用synchronize和磁盘同步（安全起见）&lt;/p&gt;&lt;/blockquote&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h2&gt;其他&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;栈堆&lt;/li&gt;
+&lt;li&gt;nonatomic 非线程安全//默认线程安全&lt;/li&gt;
+&lt;li&gt;property //设置getter和setter&lt;/li&gt;
+&lt;li&gt;synthesize //自动实现property，你不实现才会自动实现，&lt;/li&gt;
+&lt;li&gt;copy: strong的可变的副本&lt;/li&gt;
+&lt;li&gt;如果是指针对象，必须有strong或者weak，因为需要内存管理。
+
+&lt;blockquote&gt;&lt;p&gt;strong:保存指针对象的内存直到使用结束(nil).
+weak:没人用了就自动设为nil.&lt;/p&gt;&lt;/blockquote&gt;&lt;/li&gt;
+&lt;li&gt;nil是空指针。if(obj){//非nil会直行} int i = [obj method],如果ojb是nil,i＝0。如果返回的是结构体,是undefined.&lt;/li&gt;
+&lt;li&gt;bool,YES非0,NO=0&lt;/li&gt;
+&lt;li&gt;类方法，用来创建对象或者工具方法。&lt;/li&gt;
+&lt;li&gt;[实例 class] return a Calss&lt;/li&gt;
+&lt;li&gt;数组中的元素都是strong指针&lt;/li&gt;
+&lt;li&gt;alloc是NSObject的类方法，为对象在堆上分配一个足够大的空间。init是初始化。&lt;/li&gt;
+&lt;li&gt;iskinkofclass 是否属于该类或者其子类&lt;/li&gt;
+&lt;li&gt;ismemberofclass 是否属于该类（不包括继承类）&lt;/li&gt;
+&lt;li&gt;respondsToSelector 对象能否回应某个方法，不管什么类&lt;/li&gt;
+&lt;li&gt;SEL 保留selector的返回值&lt;/li&gt;
+&lt;li&gt;for - in 不要在枚举里修改可变数据，NSArray枚举和字典枚举&lt;/li&gt;
+&lt;/ol&gt;
+
+</description>
+        <pubDate>Sat, 28 Jun 2014 00:00:00 +0800</pubDate>
+        <link>http://wangnull.github.io/ios/2014/06/28/foundation-framework-chang-yong-lei-lie-ju/</link>
+        <guid isPermaLink="true">http://wangnull.github.io/ios/2014/06/28/foundation-framework-chang-yong-lei-lie-ju/</guid>
+      </item>
+    
+      <item>
         <title>Welcome to Jekyll!</title>
         <description>&lt;p&gt;You&#39;ll find this post in your &lt;code&gt;_posts&lt;/code&gt; directory - edit this post and re-build (or run with the &lt;code&gt;-w&lt;/code&gt; switch) to see your changes!
 To add new posts, simply add a file in the &lt;code&gt;_posts&lt;/code&gt; directory that follows the convention: YYYY-MM-DD-name-of-post.ext.&lt;/p&gt;
